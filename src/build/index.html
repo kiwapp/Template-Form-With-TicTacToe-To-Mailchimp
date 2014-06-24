@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Gloups</title>
+    <meta name="viewport" content="width=device-width, height=1, target-densityDpi=device-dpi" />
+
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/main.css">
+
+</head>
+<body ontouchstart="">
+<main id="wrapper"></main>
+
+<script type="text/template" id="end-viewtpl"><div class="page-end">
+    <div class="legend-step1"></div>
+    <div class="legend-step2"></div>
+</div></script>
+<script type="text/template" id="form-viewtpl"><div class="page-form">
+
+    <button type="button" class="btn-back" type="button">Back</button>
+    <form id="gameform" <% if(hasError) { %> class="error" <% } %>>
+        <div class="field input-required">
+            <label for="name">First Name</label>
+            <input type="text" name="name" id="name" value="<%= data.name %>" <% if(hasError && "name" in error) { %> class="error-field" <% } %> placeholder="<%= error.name %>" autocorrect="off" autocomplete="off" />
+        </div>
+
+        <div class="field input-required">
+            <label for="surname">Last Name</label>
+            <input type="text" name="surname" id="surname" value="<%= data.surname %>" <% if(hasError && "surname" in error) { %> class="error-field" <% } %> placeholder="<%= error.surname %>" autocorrect="off" autocomplete="off" />
+        </div>
+
+        <div class="field">
+            <label for="company">Company</label>
+            <input type="text" name="company" id="company" value="<%= data.company %>" autocorrect="off" autocomplete="off" />
+        </div>
+
+        <div class="field input-required">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" value="<%= data.email %>" <% if(hasError && "email" in error) { %> class="error-field" <% } %> placeholder="<%= error.email %>" autocorrect="off" autocomplete="off" />
+        </div>
+
+        <div class="field input-required">
+            <label for="mobile">Mobile</label>
+            <input type="tel" name="mobile" id="mobile" value="<%= data.mobile %>" <% if(hasError && "mobile" in error) { %> class="error-field" <% } %> placeholder="<%= error.mobile %>" autocorrect="off" autocomplete="off" />
+        </div>
+
+        <div class="field">
+            <label for="country">Country</label>
+            <input type="text" name="country" id="country" value="<%= data.country %>" autocorrect="off" autocomplete="off" />
+        </div>
+
+        <span class="required-details">These fields are required</span>
+
+        <button id="play" class="play-btn-form" type="button">Play</button>
+
+    </form>
+</div></script>
+<script type="text/template" id="game-viewtpl"><div class="page-game">
+    <button type="button" class="btn-back-form" type="button">Back</button>
+    <div id="scratchcard"></div>
+</div></script>
+<script type="text/template" id="home-viewtpl">Hello je suis la page deux.</script>
+<script type="text/template" id="lost-viewtpl"><div class="page-lost">
+    <button type="button" id="backtohome" class="play-btn-lost btn-redirect">Back to Home</button>
+</div></script>
+<script type="text/template" id="main-viewtpl"><div class="page-home">
+    <button id="go-to-form" type="button" class="btn-open-page">Page 2</button>
+    <button type="button" id="playhome" class="play-btn-home">Play</button>
+</div></script>
+<script type="text/template" id="register-viewtpl"><div class="page-register">
+    <button id="go-to-home" type="button" class="btn-open-page">Page 2</button>
+    <button type="button" id="backhome" class="play-btn-register btn-redirect">Back to Home</button>
+</div></script>
+<script type="text/template" id="usb-viewtpl"><div class="page-usb">
+    <button id="openpage" type="button" class="play-btn-usb btn-open-page">Open page</button>
+</div></script>
+
+    <script>
+
+    /**
+     * Detect if you are on an iPad or an Android device.
+     * Default value is the browser so we add a className to the body
+     *     - iPad : className = ipad
+     *     - android : className = android
+     *     - default : className = web-browser
+     */
+    var detectDevice = function detectDevice() {
+
+        var className = (navigator.userAgent.indexOf('iPad') > -1) ? 'ipad' : 'android';
+        if((navigator.userAgent.indexOf('Android') === -1) && (navigator.userAgent.indexOf('iPad') === -1)) {
+            className = 'web-browser';
+        }
+
+        // We use the classList API from HTML5
+        document.body.classList.add(className);
+    }();
+
+    </script>
+
+  <script src="js/vendor.min.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>

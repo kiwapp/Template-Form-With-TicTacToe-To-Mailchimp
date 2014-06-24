@@ -1,0 +1,28 @@
+
+    <script>
+
+    /**
+     * Detect if you are on an iPad or an Android device.
+     * Default value is the browser so we add a className to the body
+     *     - iPad : className = ipad
+     *     - android : className = android
+     *     - default : className = web-browser
+     */
+    var detectDevice = function detectDevice() {
+
+        var className = (navigator.userAgent.indexOf('iPad') > -1) ? 'ipad' : 'android';
+        if((navigator.userAgent.indexOf('Android') === -1) && (navigator.userAgent.indexOf('iPad') === -1)) {
+            className = 'web-browser';
+        }
+
+        // We use the classList API from HTML5
+        document.body.classList.add(className);
+    }();
+
+    </script>
+
+  <script src="js/vendor.min.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>

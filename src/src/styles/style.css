@@ -1,0 +1,243 @@
+@font-face {
+    font-family: 'SourceSansProBold';
+    src: url('../assets/typo/ostrich-bold.ttf');
+}
+
+@font-face {
+    font-family: 'SourceSansPro';
+    src: url('../assets/typo/SourceSansPro-Regular.otf');
+}
+@-webkit-keyframes rotation {
+    0% {
+      -webkit-transform: rotate(-30deg);
+    }
+
+    50% {
+       -webkit-transform: rotate(30deg);
+    }
+
+    100% {
+      -webkit-transform: rotate(-30deg);
+    }
+}
+
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: white;
+    font-size: 16px;
+    -webkit-tap-highlight-color:transparent !important;
+    -webkit-user-select:none;
+}
+button {-webkit-appearance: none}
+/*a:active, button:active,
+a:focus, button:focus {
+    background: red !important;
+    -webkit-appearance: none;
+}*/
+
+#wrapper {position: relative; overflow: hidden}
+
+.btn-open-page {
+    width: 100%;
+    height: 100%;
+    opacity: 0
+}
+
+.btn-back, .btn-back-form {
+    z-index: 42;
+    position: absolute;
+    top: 8%;
+    left: 6%;
+    height: 120px;
+    width: 100px;
+    border: 0;
+    background: url('../assets/images/btn-back.png') no-repeat;
+    text-indent: -9999px
+}
+
+.btn-back:hover,
+.btn-back:active,
+.btn-back:focus,
+.btn-back-form:hover,
+.btn-back-form:active,
+.btn-back-form:focus {background-image: url('../assets/images/btn-back-appuie.png')}
+
+[class^="play-"] {border: 0; text-indent: -9999px; background-color: transparent}
+
+#playhome {
+    background: url('../assets/images/btn-play-home.png');
+    background-size: 115px;
+    position: absolute;
+    z-index: 42;
+    width: 115px;
+    height: 179px;
+    bottom: 32%;
+    right: 25%;
+    /*-webkit-transform: rotate(-30deg)*/
+    -webkit-transform-origin: top center;
+    -webkit-animation : rotation 2.5s ease infinite;
+}
+#playhome:active, #playhome:focus, #playhome:hover {background-image: url('../assets/images/btn-play-home-appuie.png')}
+
+[class^="page-"], #gameform {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-size: 100% 100%
+}
+.page-home {background-image: url('../assets/images/background-home.jpg')}
+.page-form {background-image: url('../assets/images/background-form.jpg')}
+.page-game {background-image: url('../assets/images/background-jeu-non-gratte.jpg')}
+.page-lost {background-image: url('../assets/images/background-lost.jpg')}
+.page-usb {background-image: url('../assets/images/background-fin-win.jpg')}
+.page-register, .page-end {background-image: url('../assets/images/background-fin-win.jpg')}
+
+
+.page-end::after, .page-end::before {
+    display: block;
+    width: 0;
+    height: 0;
+    position: absolute;
+    z-index: 55;
+    top: 0;
+    right: 0;
+    -webkit-transform: scale(.5)
+}
+
+.page-end::after {
+    content: url('../assets/images/right-hand.png');
+    width: 350px
+}
+
+.page-end::before {
+    content: url('../assets/images/left-hand.png');
+    left: 0
+}
+
+[class^="legend-"] {
+    position: absolute;
+    z-index: 50;
+    height: 164px;
+    width: 852px;
+    background-size: 100% 100%;
+    top: 30%;
+    left: 0;
+    right: 0;
+    margin: auto
+}
+.legend-step1 {
+    background-image: url('../assets/images/sept1.png');
+    box-shadow: 0 0 0 500px rgba(0,0,0,.3);
+    background-color: rgba(0, 0, 0, 0.3)
+}
+
+.legend-step2 {
+    background-image: url('../assets/images/step2.png');
+    z-index: 55;
+    top: 60%
+}
+
+#gameform {
+    margin: auto;
+    width: 80%;
+    height: 30%;
+    /*margin-top: 30%*/
+}
+
+
+#scratchcard, .page-game canvas {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+.page-game canvas{ margin: auto auto 4%; left: -15px}
+
+.required-details, .field {color: #3E4651; text-transform: uppercase}
+
+.field {
+    display: inline-block;
+    vertical-align: top;
+    margin-bottom: 1rem;
+    width: 49%;
+    font-weight: bold;
+    font-size: 1.1rem;
+    font-family: 'SourceSansPro';
+}
+.field:nth-child(even) {text-align: right}
+.field input {
+    width: 50%;
+    border: 1px solid #3e4651;
+    padding: 0.4rem 0.6rem;
+    border-radius: .3rem;
+    font-family: 'SourceSansPro';
+    font-size: 1.2rem
+}
+.field label {
+    display: inline-block;
+    width: 30%;
+    text-align: left;
+}
+span.error:empty{display: none}
+.error ::-webkit-input-placeholder, .error-field {
+    color: red;
+    text-transform: none;
+    font-weight: normal;
+    font-size: 1rem;
+    font-family: 'SourceSansPro';
+    font-style: italic
+}
+
+.error .error-field {border-color: red}
+.field:nth-child(odd) .error { margin-right: 5rem; font-size: 1rem;}
+
+.input-required label::after, .required-details::before {content: "*"}
+
+.required-details {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-family: 'SourceSansPro'
+}
+
+.error-field:focus {color: black; font-style: normal}
+
+.play-btn-form {
+    background: url('../assets/images/btn-play-form.png') 0 -21px;
+    -webkit-transform: scale(.9);
+    float: right;
+    width: 120px;
+    height: 130px;
+    margin-top: -1.5rem
+}
+
+#play:active, #play:focus, #play:hover {background-image: url('../assets/images/btn-play-form-appuie.png')}
+
+.btn-redirect {
+    position: absolute;
+    bottom: 35%;
+    width: 150px;
+    height: 170px;
+    right: 20%
+}
+
+
+@media screen and (max-device-width: 1024px) {
+    #playhome {right: 17%; bottom: 20%}
+    .field input, .field label, .required-details {
+        font-size: 1.2rem;
+        letter-spacing: -1px
+    }
+
+    .ipad .field input {
+        width: 55%;
+        font-size: 1.4rem
+    }
+    .ipad #playhome {right: 24%}
+    .ipad #gameform {top: -10%}
+}

@@ -1,0 +1,40 @@
+<div class="page-form">
+
+    <button type="button" class="btn-back" type="button">Back</button>
+    <form id="gameform" <% if(hasError) { %> class="error" <% } %>>
+        <div class="field input-required">
+            <label for="name">First Name</label>
+            <input type="text" name="name" id="name" value="<%= data.name %>" <% if(hasError && "name" in error) { %> class="error-field" <% } %> placeholder="<%= error.name %>" autocorrect="off" autocomplete="off" />
+        </div>
+
+        <div class="field input-required">
+            <label for="surname">Last Name</label>
+            <input type="text" name="surname" id="surname" value="<%= data.surname %>" <% if(hasError && "surname" in error) { %> class="error-field" <% } %> placeholder="<%= error.surname %>" autocorrect="off" autocomplete="off" />
+        </div>
+
+        <div class="field">
+            <label for="company">Company</label>
+            <input type="text" name="company" id="company" value="<%= data.company %>" autocorrect="off" autocomplete="off" />
+        </div>
+
+        <div class="field input-required">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" value="<%= data.email %>" <% if(hasError && "email" in error) { %> class="error-field" <% } %> placeholder="<%= error.email %>" autocorrect="off" autocomplete="off" />
+        </div>
+
+        <div class="field input-required">
+            <label for="mobile">Mobile</label>
+            <input type="tel" name="mobile" id="mobile" value="<%= data.mobile %>" <% if(hasError && "mobile" in error) { %> class="error-field" <% } %> placeholder="<%= error.mobile %>" autocorrect="off" autocomplete="off" />
+        </div>
+
+        <div class="field">
+            <label for="country">Country</label>
+            <input type="text" name="country" id="country" value="<%= data.country %>" autocorrect="off" autocomplete="off" />
+        </div>
+
+        <span class="required-details">These fields are required</span>
+
+        <button id="play" class="play-btn-form" type="button">Play</button>
+
+    </form>
+</div>
